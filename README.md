@@ -2,6 +2,8 @@
 
 This standalone CLI downloads an Immich image's original file, sends it to an OpenAI-compatible vision endpoint, prompts for approval of missing tags, and adds the approved tags without removing existing tags.
 
+The CLI is independent of the Immich source tree. It communicates with an existing Immich server through its HTTP API and can be cloned and run as its own project.
+
 ## API key
 
 Create an Immich API key in **User Settings > API Keys** with these permissions:
@@ -26,12 +28,14 @@ export LLM_MODEL=llava
 
 ## Build and run
 
-From the repository root:
+From this project directory:
 
 ```bash
-pnpm --filter @immich/llm-tags install
-pnpm --filter @immich/llm-tags build
-pnpm --filter @immich/llm-tags start <asset-id>
+npm install
+npm run build
+npm start -- <asset-id>
 ```
 
 The command currently processes one image at a time. It uses the original asset endpoint, so the Immich API key must have `asset.download` permission. Errors are printed by the CLI and do not modify Immich.
+
+Node.js 20 or newer is required. The project has no runtime dependency on the Immich repository or its generated SDK.
