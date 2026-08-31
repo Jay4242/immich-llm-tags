@@ -1,0 +1,21 @@
+{
+  "name": "@immich/llm-tags",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Manually generate and apply image tags with an OpenAI-compatible vision model",
+  "type": "module",
+  "bin": {
+    "immich-llm-tags": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "typescript": "^7.0.0"
+  }
+}
